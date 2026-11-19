@@ -2,9 +2,7 @@
 name: CI-canary-matrix
 
 on:
-  push:
-    tags:
-      - "*"
+  # archived branch: push trigger removed (SPEC §6.4)
   workflow_dispatch:
 
 jobs:
@@ -26,63 +24,63 @@ jobs:
           # These exclusions are mainly because they are unavailable or already covered
           # gcc-10 .. gcc-12
           - os: ubuntu-22.04
-            tc: gcc-13		# unavail (too new)
+            tc: gcc-13          # unavail (too new)
           - os: ubuntu-22.04
-            tc: gcc-14		# unavail (too new)
+            tc: gcc-14          # unavail (too new)
           - os: ubuntu-22.04
-            tc: gcc-15		# unavail (too new)
+            tc: gcc-15          # unavail (too new)
           - os: ubuntu-22.04
-            tc: gcc-16		# unavail (too new)
+            tc: gcc-16          # unavail (too new)
           # clang-14 .. clang-15
           - os: ubuntu-22.04
-            tc: clang-16	# unavail (too new)
+            tc: clang-16        # unavail (too new)
           - os: ubuntu-22.04
-            tc: clang-17	# unavail (too new)
+            tc: clang-17        # unavail (too new)
           - os: ubuntu-22.04 # some sources show this as present but not found
-            tc: clang-18	# unavail (too new)
+            tc: clang-18        # unavail (too new)
           - os: ubuntu-22.04
-            tc: clang-19	# unavail (too new)
+            tc: clang-19        # unavail (too new)
           - os: ubuntu-22.04
-            tc: clang-20	# unavail (too new)
+            tc: clang-20        # unavail (too new)
           - os: ubuntu-22.04
-            tc: clang-21	# unavail (too new)
+            tc: clang-21        # unavail (too new)
           - os: ubuntu-22.04
-            tc: clang-22	# unavail (too new)
+            tc: clang-22        # unavail (too new)
 
           - os: ubuntu-24.04
-            tc: gcc-10		# covered with 22.04
+            tc: gcc-10          # covered with 22.04
           - os: ubuntu-24.04
-            tc: gcc-11		# covered with 22.04
+            tc: gcc-11          # covered with 22.04
           # gcc-12 .. gcc-14
           - os: ubuntu-24.04
-            tc: gcc-15		# unavail (too new)
+            tc: gcc-15          # unavail (too new)
           - os: ubuntu-24.04
-            tc: gcc-16		# unavail (too new)
+            tc: gcc-16          # unavail (too new)
           - os: ubuntu-24.04
-            tc: clang-14	# covered with 22.04
+            tc: clang-14        # covered with 22.04
           - os: ubuntu-24.04
-            tc: clang-15	# covered with 22.04
+            tc: clang-15        # covered with 22.04
           # clang-16 .. clang-20
           - os: ubuntu-24.04
-            tc: clang-21	# unavail (too new)
+            tc: clang-21        # unavail (too new)
           - os: ubuntu-24.04
-            tc: clang-22	# unavail (too new)
+            tc: clang-22        # unavail (too new)
 
           - os: ubuntu-26.04
-            tc: gcc-10		# unavail (too old)
+            tc: gcc-10          # unavail (too old)
           - os: ubuntu-26.04
-            tc: gcc-11		# covered with 22.04
+            tc: gcc-11          # covered with 22.04
           - os: ubuntu-26.04
-            tc: gcc-12		# covered with 24.04
+            tc: gcc-12          # covered with 24.04
           - os: ubuntu-26.04
-            tc: gcc-13		# covered with 24.04
+            tc: gcc-13          # covered with 24.04
           # gcc-14 .. gcc-16
           - os: ubuntu-26.04
-            tc: clang-14	# unavail
+            tc: clang-14        # unavail
           - os: ubuntu-26.04
-            tc: clang-15	# unavail
+            tc: clang-15        # unavail
           - os: ubuntu-26.04
-            tc: clang-16	# unavail
+            tc: clang-16        # unavail
           # clang-17 .. clang-22
       fail-fast: false
     runs-on: ${{ matrix.os }}
