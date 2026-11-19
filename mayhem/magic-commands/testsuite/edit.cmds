@@ -1,0 +1,10 @@
+select top cell
+expand
+box -20 -60 40 10
+select area
+copy e 30
+move n 5
+flatten flat
+undo
+redo
+extract all

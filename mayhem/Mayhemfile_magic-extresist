@@ -1,0 +1,11 @@
+project: savantenvs/magic
+target: magic-extresist
+
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/magic-extresist/testsuite
+
+cmds:
+  - cmd: /mayhem/mayhem/out/fuzz_magic extresist @@
+    afl: true
+    timeout: 10

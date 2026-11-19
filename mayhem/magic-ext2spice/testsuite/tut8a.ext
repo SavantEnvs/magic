@@ -1,0 +1,20 @@
+timestamp 539486845
+version 8.3
+tech scmos
+style lambda=1.0(scna20_orb)
+scale 1000 1 100
+resistclasses 26670 59550 23860 19690 27260 2000000 49 26 2505830
+use tut8c tut8c_0 1 0 4 0 1 -14
+use tut8b tut8b_0 1 0 5 0 1 0
+node "m1_n18_n8#" 0 4324 -18 -8 m1 0 0 0 0 0 0 0 0 0 0 0 0 100 58 0 0 0 0
+node "m1_n18_8#" 0 4260 -18 8 v 0 0 0 0 0 0 0 0 0 0 0 0 68 42 120 68 0 0
+node "delete_me" 251 5318 -3 -14 p 0 0 0 0 42 46 0 0 0 0 0 0 0 0 0 0 0 0
+cap "delete_me" "m1_n18_n8#" 240
+cap "m1_n18_n8#" "m1_n18_8#" 2160
+cap "tut8b_0/Gate" "tut8b_0/Out" 960
+merge "tut8b_0/In" "tut8b_0/Gate" -944 0 0 0 0 0 -8 0 0 0 0 0 0 0 -8 0 -8 0 0
+merge "tut8b_0/Gate" "tut8c_0/A"
+merge "tut8c_0/A" "m1_n18_8#"
+merge "m1_n18_8#" "delete_me"
+merge "tut8b_0/Out" "tut8c_0/B" -376 0 0 0 0 0 0 0 0 0 0 0 0 0 -16 0 0 0 0
+merge "tut8c_0/B" "m1_n18_n8#"

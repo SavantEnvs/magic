@@ -1,0 +1,10 @@
+box 0 0 10 10
+paint m1
+box 2 2 6 20
+paint poly
+paint ndiff
+select top cell
+drc check
+drc catchup
+drc count
+extract all

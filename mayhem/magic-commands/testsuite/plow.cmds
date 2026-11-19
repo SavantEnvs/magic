@@ -1,0 +1,13 @@
+box 0 0 20 4
+paint m1
+box 0 0 4 4
+paint pc
+plow e 10
+label foo n m1
+sideways
+upsidedown
+clockwise 90
+array 3 2
+wire type m2 3
+extract all
+extresist all

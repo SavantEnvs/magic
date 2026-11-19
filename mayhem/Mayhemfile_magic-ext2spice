@@ -1,0 +1,11 @@
+project: savantenvs/magic
+target: magic-ext2spice
+
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/magic-ext2spice/testsuite
+
+cmds:
+  - cmd: /mayhem/mayhem/out/fuzz_magic ext2spice @@
+    afl: true
+    timeout: 10
