@@ -1,0 +1,11 @@
+project: savantenvs/magic
+target: magic-net
+
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/magic-net/testsuite
+
+cmds:
+  - cmd: /mayhem/mayhem/out/fuzz_magic net @@
+    afl: true
+    timeout: 10

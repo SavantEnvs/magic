@@ -1,0 +1,11 @@
+project: savantenvs/magic
+target: magic-cif
+
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/magic-cif/testsuite
+
+cmds:
+  - cmd: /mayhem/mayhem/out/fuzz_magic cif @@
+    afl: true
+    timeout: 10

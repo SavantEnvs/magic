@@ -1,0 +1,28 @@
+VERSION 5.8 ;
+DIVIDERCHAR "/" ;
+BUSBITCHARS "[]" ;
+DESIGN top ;
+UNITS DISTANCE MICRONS 1000 ;
+DIEAREA ( 0 0 ) ( 20000 20000 ) ;
+ROW row0 core 0 0 N DO 10 BY 1 STEP 400 0 ;
+TRACKS X 200 DO 50 STEP 400 LAYER metal2 ;
+VIAS 1 ;
+- myvia + RECT metal1 ( -100 -100 ) ( 100 100 ) + RECT via ( -50 -50 ) ( 50 50 ) + RECT metal2 ( -100 -100 ) ( 100 100 ) ;
+END VIAS
+COMPONENTS 2 ;
+- u1 inv + PLACED ( 1000 0 ) N ;
+- u2 inv + FIXED ( 4000 0 ) FS ;
+END COMPONENTS
+PINS 2 ;
+- in + NET in + DIRECTION INPUT + USE SIGNAL + LAYER metal1 ( -100 -100 ) ( 100 100 ) + PLACED ( 0 1000 ) N ;
+- out + NET out + DIRECTION OUTPUT + LAYER metal2 ( -100 -100 ) ( 100 100 ) + FIXED ( 19000 1000 ) S ;
+END PINS
+SPECIALNETS 1 ;
+- VDD ( * VDD ) + USE POWER + ROUTED metal1 400 ( 0 3600 ) ( 20000 * ) ;
+END SPECIALNETS
+NETS 3 ;
+- in ( PIN in ) ( u1 A ) + ROUTED metal1 ( 0 1000 ) ( 1200 * ) ;
+- mid ( u1 Y ) ( u2 A ) + ROUTED metal2 ( 1900 1500 ) ( * 5000 ) M1M2 NEW metal1 ( 1900 5000 ) ( 4200 * ) myvia ;
+- out ( u2 Y ) ( PIN out ) + ROUTED metal2 ( 4900 1500 ) ( 19000 * ) ;
+END NETS
+END DESIGN

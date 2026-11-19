@@ -1,0 +1,22 @@
+VERSION 5.7 ;
+   NAMESCASESENSITIVE ON ;
+   DIVIDERCHAR "/" ;
+   BUSBITCHARS "()" ;
+   DESIGN tut8a ;
+   TECHNOLOGY scmos ;
+   UNITS DISTANCE MICRONS 1000 ;
+   DIEAREA ( -18000 -22000 ) ( 23000 12000 ) ;
+
+VIAS 0 ;
+END VIAS
+
+COMPONENTS 2 ;
+   - tut8c_0 tut8c
+      + PLACED ( 4000 -14000 ) N ;
+   - tut8b_0 tut8b
+      + PLACED ( 5000 0 ) N ;
+END COMPONENTS
+
+PINS 0 ;
+END PINS
+
